@@ -7,6 +7,5 @@
 int main()
 {
     return 0;
-    ramzi is dumb XDDD
 }
 
