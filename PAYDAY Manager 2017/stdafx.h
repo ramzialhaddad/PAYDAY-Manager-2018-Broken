@@ -24,8 +24,6 @@
 #include <vector>
 #pragma comment(lib, "Winmm.lib")
 
-
-// some defines to make my life easier.
 #define sleep this_thread::sleep_for
 #define pause cin.ignore();
 #define clear system("cls");

@@ -1,0 +1,5 @@
+﻿  PAYDAY Manager 2017.cpp
+c:\users\ramzi thinkpad\google drive\programming stuff\c++\payday--manager-2017\payday manager 2017\payday manager 2017.cpp(68): error C2065: 'username': undeclared identifier
+c:\users\ramzi thinkpad\google drive\programming stuff\c++\payday--manager-2017\payday manager 2017\payday manager 2017.cpp(90): error C2065: 'username': undeclared identifier
+c:\users\ramzi thinkpad\google drive\programming stuff\c++\payday--manager-2017\payday manager 2017\payday manager 2017.cpp(93): error C2065: 'username': undeclared identifier
+c:\users\ramzi thinkpad\google drive\programming stuff\c++\payday--manager-2017\payday manager 2017\payday manager 2017.cpp(97): error C3861: 'crimenet': identifier not found
