@@ -29,5 +29,8 @@
     <ClCompile Include="PAYDAY Manager 2017.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="endStats.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
