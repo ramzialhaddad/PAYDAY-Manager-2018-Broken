@@ -22,6 +22,8 @@
 #include <cstdlib>
 #include <ctime>
 #include <vector>
+#include <fstream>
+	
 #pragma comment(lib, "Winmm.lib")
 
 #define sleep this_thread::sleep_for
