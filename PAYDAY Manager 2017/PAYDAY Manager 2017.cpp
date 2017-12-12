@@ -1,5 +1,5 @@
 // PAYDAY Manager 2017.cpp : Defines the entry point for the console application.
-//
+// save file format no spaces: Username(string), Balance(int), SuspicionLevel(int), Loyalty(int), Repuation(int), Risk(int)
 
 #include "stdafx.h"
 
@@ -27,8 +27,33 @@ void crimenet() {
 
 int main()
 {
-	string username;
+	// this is to initilize inSaveFile as the saveFile.csv
+	ifstream inSaveFile("saveFile.csv");
 
+	// lets now make some variables the 2 below are just for the dump nothing more
+	string value;
+	string foundThing;
+
+	// These variables are use consistenly throughout the game
+	std::vector <string> saveFileUsername;
+	std::vector <int> saveFileBalance;
+	std::vector <int> saveFileSuspicion;
+	std::vector <int> saveFileLoyalty;
+	std::vector <int> saveFileReputation;
+	std::vector <int> saveFileRisk;
+	std::vector <string> saveFileDump;
+
+	// This dumps all data from the save file to the saveFileDump vector that then we can access later
+	while (inSaveFile.good()) {
+		getline(inSaveFile, value, ',');
+		cout << string(value);
+		endl;
+		foundThing = int(stoi(value));
+		saveFileDump.push_back(value);
+	}
+
+
+	string username;
 
 	int option;
 

@@ -29,7 +29,7 @@
     <ClCompile Include="PAYDAY Manager 2017.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="endStats.cpp">
+    <ClCompile Include="stats.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
