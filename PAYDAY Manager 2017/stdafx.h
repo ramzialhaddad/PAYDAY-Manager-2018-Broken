@@ -23,7 +23,9 @@
 #include <ctime>
 #include <vector>
 #include <fstream>
-	
+
+#include "stats.cpp"
+
 #pragma comment(lib, "Winmm.lib")
 
 #define sleep this_thread::sleep_for

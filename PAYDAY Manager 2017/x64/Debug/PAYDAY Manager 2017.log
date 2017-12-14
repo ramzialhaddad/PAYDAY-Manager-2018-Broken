@@ -1,14 +1,6 @@
 ﻿  stdafx.cpp
   PAYDAY Manager 2017.cpp
-c:\users\ramzi thinkpad\google drive\programming stuff\c++\payday--manager-2017\payday manager 2017\payday manager 2017.cpp(84): warning C4102: 'mainmenu': unreferenced label
-c:\users\ramzi thinkpad\google drive\programming stuff\c++\payday--manager-2017\payday manager 2017\payday manager 2017.cpp(42): warning C4101: 'saveFileReputation': unreferenced local variable
-c:\users\ramzi thinkpad\google drive\programming stuff\c++\payday--manager-2017\payday manager 2017\payday manager 2017.cpp(41): warning C4101: 'saveFileLoyalty': unreferenced local variable
-c:\users\ramzi thinkpad\google drive\programming stuff\c++\payday--manager-2017\payday manager 2017\payday manager 2017.cpp(39): warning C4101: 'saveFileBudget': unreferenced local variable
-c:\users\ramzi thinkpad\google drive\programming stuff\c++\payday--manager-2017\payday manager 2017\payday manager 2017.cpp(40): warning C4101: 'saveFileSuspicion': unreferenced local variable
-  endStats.cpp
-c:\users\ramzi thinkpad\google drive\programming stuff\c++\payday--manager-2017\payday manager 2017\endstats.cpp(15): error C2082: redefinition of formal parameter 'budget'
-c:\users\ramzi thinkpad\google drive\programming stuff\c++\payday--manager-2017\payday manager 2017\endstats.cpp(16): error C2082: redefinition of formal parameter 'suspicionLevel'
-c:\users\ramzi thinkpad\google drive\programming stuff\c++\payday--manager-2017\payday manager 2017\endstats.cpp(17): error C2082: redefinition of formal parameter 'loyalty'
-c:\users\ramzi thinkpad\google drive\programming stuff\c++\payday--manager-2017\payday manager 2017\endstats.cpp(18): error C2082: redefinition of formal parameter 'reputation'
-c:\users\ramzi thinkpad\google drive\programming stuff\c++\payday--manager-2017\payday manager 2017\endstats.cpp(19): error C2082: redefinition of formal parameter 'risk'
+c:\users\ramzi thinkpad\google drive\programming stuff\c++\payday--manager-2017\payday manager 2017\payday manager 2017.cpp(240): warning C4551: function call missing argument list
+  stats.cpp
   Generating Code...
+c:\users\ramzi thinkpad\google drive\programming stuff\c++\payday--manager-2017\payday manager 2017\payday manager 2017.cpp(57): error C4716: 'stats': must return a value
