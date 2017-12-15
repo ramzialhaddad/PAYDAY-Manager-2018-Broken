@@ -48,6 +48,11 @@ crimenet:
 		
 	case 3:
 		cout << "Your budget is " << budget;
+
+	default:
+		cout << "Sorry, didn't get that!\n";
+		Sleep(1);
+		goto crimenet;
 	}
 	system("PAUSE");
 }

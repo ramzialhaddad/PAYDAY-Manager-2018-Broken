@@ -229,7 +229,11 @@ mainmenu:
 			sleep(1s);
 			cout << "ERROR - No Such Username Exists";
 			endl;
+			Sleep(500);
+			cout << "To make an account you must 'hack' the game :)";
+			endl;
 			sleep(2s);
+
 		}
 
 		break;
