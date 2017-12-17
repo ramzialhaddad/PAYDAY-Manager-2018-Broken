@@ -1,5 +1,6 @@
 // PAYDAY Manager 2017.cpp : Defines the entry point for the console application.
-// save file format no spaces: Username(string), Balance(int), Budget(int), SuspicionLevel(int), Loyalty(int), Repuation(int), Risk(int)
+// save file format no spaces: Username(string), Balance(int), Budget(int), SuspicionLevel(int), Loyalty(int),
+// Reputation(int), Risk(int), Heister1(string), Heister2(string), Heister3(string), Heister4(string)
 
 #include "stdafx.h"
 
@@ -20,10 +21,120 @@ __) | | | | |  / /
 
 using namespace std;
 
-void crimenet() {
-	cout << "Hello";
+//This is the crime.net things
+
+int option;
+int budget = 10000;
+int heister1;
+int heister2;
+int heister3;
+int heister4;
+string loudOrStealthInput;
+int loudOrStealth;
+//misc variables
+int b = 11;
+int w = 15;
+
+// This is the First World Bank Heist
+void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalance, std::vector <int> saveFileBudget, std::vector <int> saveFileSuspicion, std::vector <int> saveFileLoyalty, std::vector <int> saveFileReputation, std::vector <int> saveFileRisk, int index) {
+	cout << "Loading";
+	lelip;
+	cout << "\n";
+
+	cout << "You send the Payday Gang to the bank...\n";
+	sleep(1s);
+
+	cout << "They worry about the plan going south, they request you to either go loud or stealth\n";
+	input;
+	cin >> loudOrStealthInput;
+
+	cout << "You chose " << loudOrStealthInput;
 	endl;
+
+	if (loudOrStealthInput == "loud" || loudOrStealthInput == "LOUD" || "Loud") {
+		loudOrStealth = 1;
+	}
+	else {
+		loudOrStealth = 0;
+	}
+
+	switch (loudOrStealth){
+	case 0:
+		for (;;) {
+			if (saveFileRisk[index] >= 4 || saveFileSuspicion[index] >= 4) {
+				loudOrStealth = 2;
+				break;
+			}
+		}
+	case 1:
+		if (loudOrStealth == 1 || loudOrStealth == 2) {
+			if (loudOrStealth == 1) {
+				cout << "Your Gang reached the Bank with cops alerted and launching an assult soon!\n";
+				lelip;
+				system("cls");
+				cout << "Quick! Type this!\n";
+				sleep(0.1s);
+				cout << "Guys! Find the Bank Manager and get this keycard. The drill and thermite is in the server room\n";
+				
+			}
+			else {
+				cout << "Your Risk or Suspicion Level is too high, the cops were called and the heist is now loud\n";
+			}
+		}
+	}
 }
+
+//menu for heists
+void heistoptions(std::vector <string> saveFileUsername, std::vector <int> saveFileBalance, std::vector <int> saveFileBudget, std::vector <int> saveFileSuspicion, std::vector <int> saveFileLoyalty, std::vector <int> saveFileReputation, std::vector <int> saveFileRisk, int index)
+{
+	cout << "1. First World Bank\n";
+	cin >> option;
+	switch (option) {
+	case 1:
+		system("cls");
+		fwb(saveFileUsername, saveFileBalance, saveFileBudget, saveFileSuspicion, saveFileLoyalty, saveFileReputation, saveFileRisk, searchedIndex);
+	
+	default:
+		cout << "Sorry, didn't quite get that!\n";
+		system("PAUSE");
+	}
+}
+
+//crime.net
+void crimenet(std::vector <string> saveFileUsername, std::vector <int> saveFileBalance, std::vector <int> saveFileBudget, std::vector <int> saveFileSuspicion, std::vector <int> saveFileLoyalty, std::vector <int> saveFileReputation, std::vector <int> saveFileRisk, int index)
+{
+crimenet:
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	cout << "Welcome to ";
+	SetConsoleTextAttribute(hConsole, b);
+	cout << "Crime.net\n";
+	SetConsoleTextAttribute(hConsole, w);
+	cout << "What would you like to do?\n";
+	cout << "1. Plan a heist\n";
+	cout << "2. Change the crew\n";
+	cout << "3. Budget\n";
+	cin >> option;
+
+	switch (option) {
+	case 1:
+		cout << "What heist would you like to do?\n";
+		heistoptions(saveFileUsername, saveFileBalance, saveFileBudget, saveFileSuspicion, saveFileLoyalty, saveFileReputation, saveFileRisk, searchedIndex); //calling the menu function
+	case 2:
+		cout << "Which heisters do you want to change?\n";
+		cout << "Your current heisters are:\n";
+
+	case 3:
+		cout << "Your budget is " << budget;
+
+	default:
+		cout << "Sorry, didn't get that!\n";
+		Sleep(1);
+		goto crimenet;
+	}
+	system("PAUSE");
+}
+
+
 
 // Here below is the stats() function, the functions needs reuqired vectors and variables in specific order to display
 // the correct stats. The vector contains all the data of that category and the varible is the index of it.
@@ -58,6 +169,7 @@ int stats(std::vector <string> saveFileUsername, std::vector <int> saveFileBalan
 	return 0;
 }
 
+// finally, the main function
 int main()
 {
 	// These variables help with searching the inputted username in the vector saveFileUsername
@@ -125,7 +237,9 @@ int main()
 		endl;
 		saveFileRisk.push_back(int(stoi(value)));
 
-		//so we can know how long the vectors are, useful for searching the username in saveFileUsername
+		//For the 4 heisters
+
+		//so we can know how long the vectors are, useful for searching the username in saveFileUsername and others like heisters
 		index += 1;
 	}
 
