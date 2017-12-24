@@ -35,8 +35,18 @@ int loudOrStealth;
 int b = 11;
 int w = 15;
 
+// This is to add a fancy touch to printing text to the console
+void type(const string& message, unsigned int timeBetweenEachLetter) {
+	// after it got the string and the int then we need to itterate it until the message has completely printed
+	for (const char c : message) {
+		cout << c;
+		Sleep(timeBetweenEachLetter);
+	}
+	endl;
+}
+
 // This is the First World Bank Heist
-void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalance, std::vector <int> saveFileBudget, std::vector <int> saveFileSuspicion, std::vector <int> saveFileLoyalty, std::vector <int> saveFileReputation, std::vector <int> saveFileRisk, int index) {
+void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalance, std::vector <int> saveFileBudget, std::vector <int> saveFileSuspicion, std::vector <int> saveFileLoyalty, std::vector <int> saveFileReputation, std::vector <int> saveFileRisk, int searchedIndex) {
 	cout << "Loading";
 	lelip;
 	cout << "\n";
@@ -61,7 +71,7 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 	switch (loudOrStealth){
 	case 0:
 		for (;;) {
-			if (saveFileRisk[index] >= 4 || saveFileSuspicion[index] >= 4) {
+			if (saveFileRisk[searchedIndex] >= 4 || saveFileSuspicion[searchedIndex] >= 4) {
 				loudOrStealth = 2;
 				break;
 			}
@@ -75,6 +85,9 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 				cout << "Quick! Type this!\n";
 				sleep(0.1s);
 				cout << "Guys! Find the Bank Manager and get this keycard. The drill and thermite is in the server room\n";
+				string thisVariableDoesNotReallyMatterTooMuch;
+				cin >> thisVariableDoesNotReallyMatterTooMuch;
+				
 				
 			}
 			else {
@@ -85,7 +98,7 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 }
 
 //menu for heists
-void heistoptions(std::vector <string> saveFileUsername, std::vector <int> saveFileBalance, std::vector <int> saveFileBudget, std::vector <int> saveFileSuspicion, std::vector <int> saveFileLoyalty, std::vector <int> saveFileReputation, std::vector <int> saveFileRisk, int index)
+void heistoptions(std::vector <string> saveFileUsername, std::vector <int> saveFileBalance, std::vector <int> saveFileBudget, std::vector <int> saveFileSuspicion, std::vector <int> saveFileLoyalty, std::vector <int> saveFileReputation, std::vector <int> saveFileRisk, int searchedIndex)
 {
 	cout << "1. First World Bank\n";
 	cin >> option;
@@ -101,7 +114,7 @@ void heistoptions(std::vector <string> saveFileUsername, std::vector <int> saveF
 }
 
 //crime.net
-void crimenet(std::vector <string> saveFileUsername, std::vector <int> saveFileBalance, std::vector <int> saveFileBudget, std::vector <int> saveFileSuspicion, std::vector <int> saveFileLoyalty, std::vector <int> saveFileReputation, std::vector <int> saveFileRisk, int index)
+void crimenet(std::vector <string> saveFileUsername, std::vector <int> saveFileBalance, std::vector <int> saveFileBudget, std::vector <int> saveFileSuspicion, std::vector <int> saveFileLoyalty, std::vector <int> saveFileReputation, std::vector <int> saveFileRisk, int searchedIndex, std::vector <string> saveFileHeister1, std::vector <string> saveFileHeister2, std::vector <string> saveFileHeister3, std::vector <string> saveFileHeister4)
 {
 crimenet:
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -138,30 +151,53 @@ crimenet:
 
 // Here below is the stats() function, the functions needs reuqired vectors and variables in specific order to display
 // the correct stats. The vector contains all the data of that category and the varible is the index of it.
-int stats(std::vector <string> saveFileUsername, std::vector <int> saveFileBalance, std::vector <int> saveFileBudget, std::vector <int> saveFileSuspicion, std::vector <int> saveFileLoyalty, std::vector <int> saveFileReputation, std::vector <int> saveFileRisk, int index) {
+int stats(std::vector <string> saveFileUsername, std::vector <int> saveFileBalance, std::vector <int> saveFileBudget, std::vector <int> saveFileSuspicion, std::vector <int> saveFileLoyalty, std::vector <int> saveFileReputation, std::vector <int> saveFileRisk, int searchedIndex, std::vector <string> saveFileHeister1, std::vector <string> saveFileHeister2, std::vector <string> saveFileHeister3, std::vector <string> saveFileHeister4) {
 	system("cls");
 	cout << "Stats:" << "\n";
+	Sleep(300);
+
+	string message = "Username: " + saveFileUsername[searchedIndex];
+	type(message, 30);
 	Sleep(100);
 
-	cout << "Username: " << saveFileUsername[index] << "\n";
+	message = string("Balance: ") + to_string(saveFileBalance[searchedIndex]);
+	type(message, 30);
 	Sleep(100);
 
-	cout << "Balance: " << saveFileBalance[index] << "\n";
+	message = string("Budget: ") + to_string(saveFileBudget[searchedIndex]);
+	type(message, 30);
 	Sleep(100);
 
-	cout << "Budget: " << saveFileBudget[index] << "\n";
+	message = string("Suspicion Level: ") + to_string(saveFileSuspicion[searchedIndex]);
+	type(message, 30);
 	Sleep(100);
 
-	cout << "Suspicion Level: " << saveFileSuspicion[index] << "\n";
+	message = string("Loyalty: ") + to_string(saveFileLoyalty[searchedIndex]);
+	type(message, 30);
 	Sleep(100);
 
-	cout << "Loyalty: " << saveFileLoyalty[index] << "\n";
+	message = string("Reputation: ") + to_string(saveFileReputation[searchedIndex]);
+	type(message, 30);
 	Sleep(100);
 
-	cout << "Reputation: " << saveFileReputation[index] << "\n";
+	message = string("Risk: ") + to_string(saveFileRisk[searchedIndex]);
+	type(message, 30);
 	Sleep(100);
 
-	cout << "Risk: " << saveFileRisk[index] << "\n";
+	message = "Prefered Heister 1: " + saveFileHeister1[searchedIndex];
+	type(message, 30);
+	Sleep(100);
+
+	message = "Prefered Heister 2: " + saveFileHeister2[searchedIndex];
+	type(message, 30);
+	Sleep(100);
+
+	message = "Prefered Heister 3: " + saveFileHeister3[searchedIndex];
+	type(message, 30);
+	Sleep(100);
+
+	message = "Prefered Heister 4: " + saveFileHeister4[searchedIndex];
+	type(message, 30);
 	Sleep(100);
 
 	system("PAUSE");
@@ -173,7 +209,7 @@ int stats(std::vector <string> saveFileUsername, std::vector <int> saveFileBalan
 int main()
 {
 	// These variables help with searching the inputted username in the vector saveFileUsername
-	int index = 0;
+	int lengthOfVectors = 0;
 	int searchedIndex = 0;
 	bool valueFound;
 
@@ -191,9 +227,13 @@ int main()
 	std::vector <int> saveFileLoyalty;
 	std::vector <int> saveFileReputation;
 	std::vector <int> saveFileRisk;
-	std::vector <string> saveFileDump;
+	std::vector <string> saveFileHeister1;
+	std::vector <string> saveFileHeister2;
+	std::vector <string> saveFileHeister3;
+	std::vector <string> saveFileHeister4;
 
-	// This dumps all data from the save file to the saveFileDump vector that then we can access later
+
+	// This dumps all data from the save file to individual vectors that we can use and change as we please
 	while (inSaveFile.good()) {
 		// For username
 		getline(inSaveFile, value, ',');
@@ -238,9 +278,28 @@ int main()
 		saveFileRisk.push_back(int(stoi(value)));
 
 		//For the 4 heisters
+		getline(inSaveFile, value, ',');
+		cout << string(value);
+		endl;
+		saveFileHeister1.push_back(string(value));
 
-		//so we can know how long the vectors are, useful for searching the username in saveFileUsername and others like heisters
-		index += 1;
+		getline(inSaveFile, value, ',');
+		cout << string(value);
+		endl;
+		saveFileHeister2.push_back(string(value));
+
+		getline(inSaveFile, value, ',');
+		cout << string(value);
+		endl;
+		saveFileHeister3.push_back(string(value));
+
+		getline(inSaveFile, value, ',');
+		cout << string(value);
+		endl;
+		saveFileHeister4.push_back(string(value));
+
+		//so we can know how long the vectors are, useful for calculations and verification methods
+		lengthOfVectors += 1;
 	}
 
 	// declaring some variables
@@ -298,7 +357,7 @@ mainmenu:
 		// lets now find this username in the saveFileUsername vector then we can assign a index to it
 		valueFound = false;
 
-		for (i = -1; (i < index) && !valueFound;) {
+		for (i = -1; (i < lengthOfVectors) && !valueFound;) {
 			cout << i;
 			endl;
 			saveFileUsername[i];
@@ -336,8 +395,9 @@ mainmenu:
 			cout << "Welcome, " << username << ".\n";
 
 			system("PAUSE");
-
-			crimenet();
+			
+			// This user seems legit lets log him in to crimenet, hopefully he didn't just take one of the usernames in the "SUPER SECURE" CSV file xD
+			crimenet(saveFileUsername, saveFileBalance, saveFileBudget, saveFileSuspicion, saveFileLoyalty, saveFileReputation, saveFileRisk, searchedIndex, saveFileHeister1, saveFileHeister2, saveFileHeister3, saveFileHeister4);
 		}
 		else {
 			sleep(1s);
@@ -353,10 +413,14 @@ mainmenu:
 		break;
 	case 2:
 		// Lets call our C++ file called stats.cpp and pass the required variables and vectors
-		stats(saveFileUsername, saveFileBalance, saveFileBudget, saveFileSuspicion, saveFileLoyalty, saveFileReputation, saveFileRisk, searchedIndex);
+		stats(saveFileUsername, saveFileBalance, saveFileBudget, saveFileSuspicion, saveFileLoyalty, saveFileReputation, saveFileRisk, searchedIndex, saveFileHeister1, saveFileHeister2, saveFileHeister3, saveFileHeister4);
 		break;
 
 	case 3:
+		cout << "Programming - Ramzi Al Haddad\n";
+		cout << "Programming - Floyd\n";
+		system("PAUSE");
+		break;
 
 	case 4:
 		exit(0);

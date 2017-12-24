@@ -1,6 +1,0 @@
-﻿  stdafx.cpp
-  PAYDAY Manager 2017.cpp
-c:\users\ramzi thinkpad\google drive\programming stuff\c++\payday--manager-2017\payday manager 2017\payday manager 2017.cpp(240): warning C4551: function call missing argument list
-  stats.cpp
-  Generating Code...
-c:\users\ramzi thinkpad\google drive\programming stuff\c++\payday--manager-2017\payday manager 2017\payday manager 2017.cpp(57): error C4716: 'stats': must return a value
