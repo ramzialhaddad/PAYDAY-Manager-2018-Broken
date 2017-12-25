@@ -42,12 +42,11 @@ void type(const string& message, unsigned int timeBetweenEachLetter) {
 		cout << c;
 		Sleep(timeBetweenEachLetter);
 	}
-	endl;
 }
 
 // This is the First World Bank Heist
 void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalance, std::vector <int> saveFileBudget, std::vector <int> saveFileSuspicion, std::vector <int> saveFileLoyalty, std::vector <int> saveFileReputation, std::vector <int> saveFileRisk, int searchedIndex) {
-	cout << "Loading";
+	type("Loading", 30);
 	lelip;
 	cout << "\n";
 
@@ -70,13 +69,17 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 
 	switch (loudOrStealth){
 	case 0:
-		for (;;) {
-			if (saveFileRisk[searchedIndex] >= 4 || saveFileSuspicion[searchedIndex] >= 4) {
-				loudOrStealth = 2;
-				break;
-			}
+		// this is to check wheather their risk or suspicion is over 40, if so then they are too high to go stealth so we make it 2, so that
+		// it goes to case 1
+		if (saveFileRisk[searchedIndex] >= 40 || saveFileSuspicion[searchedIndex] >= 40) {
+			loudOrStealth = 2;
 		}
-	case 1:
+		else {
+			type("Your risk or suspicion is low enough to go stealth", 30);
+			sleep(1s);
+		}
+
+	case 1 || 2:
 		if (loudOrStealth == 1 || loudOrStealth == 2) {
 			if (loudOrStealth == 1) {
 				cout << "Your Gang reached the Bank with cops alerted and launching an assult soon!\n";
@@ -91,7 +94,42 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 				
 			}
 			else {
-				cout << "Your Risk or Suspicion Level is too high, the cops were called and the heist is now loud\n";
+				type("Your Risk or Suspicion Level is too high, the cops were called and the heist is now loud\n", 30);
+				sleep(1s);
+
+				type("Your Gang reached the Bank with cops alerted and launching an assult soon!\n", 30);
+				lelip;
+				system("cls");
+				type("Quick! Type this!\n", 30);
+				sleep(0.1s);
+				type("Guys! Find the Bank Manager and get this keycard. The drill and thermite is in the server room.\n", 30);
+				string thisVariableDoesNotReallyMatterTooMuch;
+				cin >> thisVariableDoesNotReallyMatterTooMuch;
+
+				if (thisVariableDoesNotReallyMatterTooMuch == "Guys! Find the Bank Manager and get this keycard. The drill and thermite is in the server room.") {
+					endl;
+					endl;
+
+					type("Great work!, your loyalty increased!", 30);
+
+					// increase loyalty by 10%
+					saveFileLoyalty[searchedIndex] += 10;
+
+					sleep(2s);
+				}
+				else{
+					type("That was not correct, loyalty decreased!", 30);
+
+					if (saveFileLoyalty[searchedIndex] > 10) {
+						saveFileLoyalty[searchedIndex] -= 10;
+					}
+					else {
+						cls;
+						type("Your Payday Gang lost faith in you, they all went to custody and police found you and now you are in jail", 100);
+						sleep(2s);
+					}
+				}
+				
 			}
 		}
 	}
@@ -116,12 +154,15 @@ void heistoptions(std::vector <string> saveFileUsername, std::vector <int> saveF
 //crime.net
 void crimenet(std::vector <string> saveFileUsername, std::vector <int> saveFileBalance, std::vector <int> saveFileBudget, std::vector <int> saveFileSuspicion, std::vector <int> saveFileLoyalty, std::vector <int> saveFileReputation, std::vector <int> saveFileRisk, int searchedIndex, std::vector <string> saveFileHeister1, std::vector <string> saveFileHeister2, std::vector <string> saveFileHeister3, std::vector <string> saveFileHeister4)
 {
+	string message;
 crimenet:
+	system("cls");
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	cout << "Welcome to ";
+	type("Welcome to ", 150);
 	SetConsoleTextAttribute(hConsole, b);
-	cout << "Crime.net\n";
+	type("Crime.net\n", 60);
 	SetConsoleTextAttribute(hConsole, w);
+	sleep(2s);
 	cout << "What would you like to do?\n";
 	cout << "1. Plan a heist\n";
 	cout << "2. Change the crew\n";
@@ -135,11 +176,18 @@ crimenet:
 	case 2:
 		cout << "Which heisters do you want to change?\n";
 		cout << "Your current heisters are:\n";
+		system("PAUSE");
 
 	case 3:
-		cout << "Your budget is " << budget;
+		cls;
+		message = string("Your budget is ") + to_string(budget);
+		type(message, 40);
+		endl;
+		system("PAUSE");
+		break;
 
 	default:
+		cls;
 		cout << "Sorry, didn't get that!\n";
 		Sleep(1);
 		goto crimenet;
@@ -158,47 +206,58 @@ int stats(std::vector <string> saveFileUsername, std::vector <int> saveFileBalan
 
 	string message = "Username: " + saveFileUsername[searchedIndex];
 	type(message, 30);
+	endl;
 	Sleep(100);
 
 	message = string("Balance: ") + to_string(saveFileBalance[searchedIndex]);
 	type(message, 30);
+	endl;
 	Sleep(100);
 
 	message = string("Budget: ") + to_string(saveFileBudget[searchedIndex]);
 	type(message, 30);
+	endl;
 	Sleep(100);
 
 	message = string("Suspicion Level: ") + to_string(saveFileSuspicion[searchedIndex]);
 	type(message, 30);
+	endl;
 	Sleep(100);
 
 	message = string("Loyalty: ") + to_string(saveFileLoyalty[searchedIndex]);
 	type(message, 30);
+	endl;
 	Sleep(100);
 
 	message = string("Reputation: ") + to_string(saveFileReputation[searchedIndex]);
 	type(message, 30);
+	endl;
 	Sleep(100);
 
 	message = string("Risk: ") + to_string(saveFileRisk[searchedIndex]);
 	type(message, 30);
+	endl;
 	Sleep(100);
 
 	message = "Prefered Heister 1: " + saveFileHeister1[searchedIndex];
 	type(message, 30);
+	endl;
 	Sleep(100);
 
 	message = "Prefered Heister 2: " + saveFileHeister2[searchedIndex];
 	type(message, 30);
+	endl;
 	Sleep(100);
 
 	message = "Prefered Heister 3: " + saveFileHeister3[searchedIndex];
 	type(message, 30);
+	endl;
 	Sleep(100);
 
 	message = "Prefered Heister 4: " + saveFileHeister4[searchedIndex];
 	type(message, 30);
-	Sleep(100);
+	endl;
+	Sleep(2000);
 
 	system("PAUSE");
 

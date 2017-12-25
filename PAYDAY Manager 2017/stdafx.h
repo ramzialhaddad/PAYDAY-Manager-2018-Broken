@@ -33,3 +33,4 @@
 #define lelip cout << "."; sleep(1s); cout << "."; sleep(1s); cout << "."; sleep(1s); cout << "."; sleep(1s);
 #define endl cout << endl;
 #define input cout << "> ";
+#define cls system("cls");
