@@ -24,12 +24,6 @@ using namespace std;
 //This is the crime.net things
 
 int option;
-int budget = 10000;
-int heister1;
-int heister2;
-int heister3;
-int heister4;
-string loudOrStealthInput;
 int loudOrStealth;
 //misc variables
 int b = 11;
@@ -44,6 +38,18 @@ void type(const string& message, unsigned int timeBetweenEachLetter) {
 	}
 }
 
+// This is the lose function, it always repeats the statment
+void lose() {
+	for (;;) {
+		cls;
+		sleep(2s);
+		type("Your Payday Gang lost faith in you, they all went to custody and police found you and now you are in jail", 100);
+		sleep(2s);
+		pause;
+	}
+}
+
+
 // This is the First World Bank Heist
 void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalance, std::vector <int> saveFileBudget, std::vector <int> saveFileSuspicion, std::vector <int> saveFileLoyalty, std::vector <int> saveFileReputation, std::vector <int> saveFileRisk, int searchedIndex) {
 	type("Loading", 30);
@@ -54,100 +60,114 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 	sleep(1s);
 
 	cout << "They worry about the plan going south, they request you to either go loud or stealth\n";
-	input;
-	cin >> loudOrStealthInput;
 
-	cout << "You chose " << loudOrStealthInput;
+	type("Type 1 for loud and 0 for stealth\n", 30);
+	input;
+	cin >> loudOrStealth;
+
+	cout << "You chose " << loudOrStealth;
 	endl;
 
-	if (loudOrStealthInput == "loud" || loudOrStealthInput == "LOUD" || "Loud") {
-		loudOrStealth = 1;
-	}
-	else {
-		loudOrStealth = 0;
-	}
-
-	switch (loudOrStealth){
+	switch (loudOrStealth) {
 	case 0:
-		// this is to check wheather their risk or suspicion is over 40, if so then they are too high to go stealth so we make it 2, so that
-		// it goes to case 1
+		// this is to check wheather their risk or suspicion is over 40, if so then they are too high to go stealth
 		if (saveFileRisk[searchedIndex] >= 40 || saveFileSuspicion[searchedIndex] >= 40) {
-			loudOrStealth = 2;
+			type("Your Risk or Suspicion Level is too high, the cops were called and the heist is now loud\n", 30);
+			sleep(1s);
+
+			type("Your Gang reached the Bank with cops alerted and launching an assult soon!\n", 30);
+			lelip;
+			system("cls");
+			type("Quick! Type this!\n", 30);
+			sleep(0.1s);
+			type("Guys! Find the Bank Manager and get his keycard. The drill and thermite is in the server room.\n", 30);
+			string thisVariableDoesNotReallyMatterTooMuch;
+			cin >> thisVariableDoesNotReallyMatterTooMuch;
+
+			if (thisVariableDoesNotReallyMatterTooMuch == "Guys! Find the Bank Manager and get his keycard. The drill and thermite is in the server room.") {
+				endl;
+				endl;
+
+				type("Great work!, your loyalty increased!", 30);
+
+				// increase loyalty by 10%
+				saveFileLoyalty[searchedIndex] += 10;
+
+				sleep(2s);
+			}
+			else {
+				type("That was not correct, loyalty decreased!", 30);
+
+				if (saveFileLoyalty[searchedIndex] > 10) {
+					saveFileLoyalty[searchedIndex] -= 10;
+				}
+				else {
+					lose();
+				}
+			}
 		}
 		else {
 			type("Your risk or suspicion is low enough to go stealth", 30);
 			sleep(1s);
 		}
+		break;
 
-	case 1 || 2:
-		if (loudOrStealth == 1 || loudOrStealth == 2) {
-			if (loudOrStealth == 1) {
-				cout << "Your Gang reached the Bank with cops alerted and launching an assult soon!\n";
-				lelip;
-				system("cls");
-				cout << "Quick! Type this!\n";
-				sleep(0.1s);
-				cout << "Guys! Find the Bank Manager and get this keycard. The drill and thermite is in the server room\n";
-				string thisVariableDoesNotReallyMatterTooMuch;
-				cin >> thisVariableDoesNotReallyMatterTooMuch;
-				
-				
+	case 1:
+		cout << "Your Gang reached the Bank with cops alerted and launching an assult soon!\n";
+		lelip;
+		system("cls");
+		cout << "Quick! Type this!\n";
+		sleep(0.1s);
+		cout << "Guys! Find the Bank Manager and get his keycard. The drill and thermite is in the server room.\n";
+		string thisVariableDoesNotReallyMatterTooMuch;
+		cin >> thisVariableDoesNotReallyMatterTooMuch;
+
+		if (thisVariableDoesNotReallyMatterTooMuch == "Guys! Find the Bank Manager and get his keycard. The drill and thermite is in the server room.") {
+			endl;
+			endl;
+
+			type("Great work!, your loyalty increased!", 30);
+
+			// increase loyalty by 10%
+			saveFileLoyalty[searchedIndex] += 10;
+
+			sleep(2s);
+		}
+		else {
+			type("That was not correct, loyalty decreased!", 30);
+
+			if (saveFileLoyalty[searchedIndex] > 10) {
+				saveFileLoyalty[searchedIndex] -= 10;
 			}
 			else {
-				type("Your Risk or Suspicion Level is too high, the cops were called and the heist is now loud\n", 30);
-				sleep(1s);
-
-				type("Your Gang reached the Bank with cops alerted and launching an assult soon!\n", 30);
-				lelip;
-				system("cls");
-				type("Quick! Type this!\n", 30);
-				sleep(0.1s);
-				type("Guys! Find the Bank Manager and get this keycard. The drill and thermite is in the server room.\n", 30);
-				string thisVariableDoesNotReallyMatterTooMuch;
-				cin >> thisVariableDoesNotReallyMatterTooMuch;
-
-				if (thisVariableDoesNotReallyMatterTooMuch == "Guys! Find the Bank Manager and get this keycard. The drill and thermite is in the server room.") {
-					endl;
-					endl;
-
-					type("Great work!, your loyalty increased!", 30);
-
-					// increase loyalty by 10%
-					saveFileLoyalty[searchedIndex] += 10;
-
-					sleep(2s);
-				}
-				else{
-					type("That was not correct, loyalty decreased!", 30);
-
-					if (saveFileLoyalty[searchedIndex] > 10) {
-						saveFileLoyalty[searchedIndex] -= 10;
-					}
-					else {
-						cls;
-						type("Your Payday Gang lost faith in you, they all went to custody and police found you and now you are in jail", 100);
-						sleep(2s);
-					}
-				}
-				
+				lose();
 			}
 		}
+
+		break;
 	}
+
+	cout << "HEY THERE MAN !";
+	endl;
+	pause;
 }
 
 //menu for heists
 void heistoptions(std::vector <string> saveFileUsername, std::vector <int> saveFileBalance, std::vector <int> saveFileBudget, std::vector <int> saveFileSuspicion, std::vector <int> saveFileLoyalty, std::vector <int> saveFileReputation, std::vector <int> saveFileRisk, int searchedIndex)
 {
+heistoptions:
 	cout << "1. First World Bank\n";
 	cin >> option;
 	switch (option) {
 	case 1:
 		system("cls");
 		fwb(saveFileUsername, saveFileBalance, saveFileBudget, saveFileSuspicion, saveFileLoyalty, saveFileReputation, saveFileRisk, searchedIndex);
-	
+		break;
+
 	default:
 		cout << "Sorry, didn't quite get that!\n";
 		system("PAUSE");
+		goto heistoptions;
 	}
 }
 
@@ -173,14 +193,16 @@ crimenet:
 	case 1:
 		cout << "What heist would you like to do?\n";
 		heistoptions(saveFileUsername, saveFileBalance, saveFileBudget, saveFileSuspicion, saveFileLoyalty, saveFileReputation, saveFileRisk, searchedIndex); //calling the menu function
+		break;
 	case 2:
 		cout << "Which heisters do you want to change?\n";
 		cout << "Your current heisters are:\n";
 		system("PAUSE");
+		break;
 
 	case 3:
 		cls;
-		message = string("Your budget is ") + to_string(budget);
+		message = string("Your budget is ") + to_string(saveFileBudget[searchedIndex]);
 		type(message, 40);
 		endl;
 		system("PAUSE");
@@ -192,7 +214,8 @@ crimenet:
 		Sleep(1);
 		goto crimenet;
 	}
-	system("PAUSE");
+
+	goto crimenet;
 }
 
 
@@ -454,7 +477,7 @@ mainmenu:
 			cout << "Welcome, " << username << ".\n";
 
 			system("PAUSE");
-			
+
 			// This user seems legit lets log him in to crimenet, hopefully he didn't just take one of the usernames in the "SUPER SECURE" CSV file xD
 			crimenet(saveFileUsername, saveFileBalance, saveFileBudget, saveFileSuspicion, saveFileLoyalty, saveFileReputation, saveFileRisk, searchedIndex, saveFileHeister1, saveFileHeister2, saveFileHeister3, saveFileHeister4);
 		}
