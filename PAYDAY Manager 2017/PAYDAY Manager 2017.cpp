@@ -82,6 +82,7 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 
 	switch (loudOrStealth){
 	case 0:
+		// The user tried to pick stealth, lets check weather he can or cannot go depending on their suspicion level
 		// this is to check wheather their risk or suspicion is over 40, if so then they are too high to go stealth
 		if (saveFileRisk[searchedIndex] >= 40 || saveFileSuspicion[searchedIndex] >= 40) {
 			type("Your Risk or Suspicion Level is too high, the cops were called and the heist is now loud\n", 30);
@@ -91,40 +92,18 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 			lelip;
 			system("cls");
 			type("Quick! Type this!\n", 30);
-			sleep(0.1s);
-			type("Guys! Find the Bank Manager and get his keycard. The drill and thermite is in the server room.\n", 30);
-			string thisVariableDoesNotReallyMatterTooMuch;
-			cin >> thisVariableDoesNotReallyMatterTooMuch;
-
-			if (thisVariableDoesNotReallyMatterTooMuch == "Guys! Find the Bank Manager and get his keycard. The drill and thermite is in the server room.") {
-				endl;
-				endl;
-
-				type("Great work!, your loyalty increased!", 30);
-
-				// increase loyalty by 10%
-				saveFileLoyalty[searchedIndex] += 10;
-
-				sleep(2s);
-			}
-			else {
-				type("That was not correct, loyalty decreased!", 30);
-
-				if (saveFileLoyalty[searchedIndex] > 10) {
-					saveFileLoyalty[searchedIndex] -= 10;
-				}
-				else {
-					lose();
-				}
-			}
+			sleep(1s);
 		}
+
 		else {
+			// The suspicion level is low enough for stealth to be viable
 			type("Your risk or suspicion is low enough to go stealth", 30);
 			sleep(1s);
 		}
 		break;
 
 	case 1:
+		// If the user chose Loud
 		string thisVariableDoesNotReallyMatterTooMuch;
 		cout << "Your Gang reached the Bank with cops alerted and launching an assult soon!\n";
 		lelip;
@@ -332,7 +311,18 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 			saveFileLoyalty[searchedIndex] = goodPoint(saveFileLoyalty, searchedIndex, 1);
 		}
 
-		
+		system("cls");
+		sleep(1s);
+		type("Calculating result, please wait", 40);
+		lelip;
+		endl;
+		sleep(2s);
+
+		int calculatedResult = saveFileLoyalty[searchedIndex] - beforeValue;
+		type("You got a total of" + calculatedResult, 30);
+		sleep(2s);
+		endl;
+		system("PAUSE");
 
 
 
@@ -692,8 +682,8 @@ mainmenu:
 		break;
 
 	case 3:
-		cout << "Programming - Ramzi Al Haddad\n";
-		cout << "Programming - Floyd\n";
+		type("Programming - Ramzi Al Haddad", 30);
+		endl;
 		system("PAUSE");
 		break;
 
