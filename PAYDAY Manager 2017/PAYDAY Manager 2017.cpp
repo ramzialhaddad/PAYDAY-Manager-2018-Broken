@@ -72,7 +72,11 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 	sleep(1s);
 
 	cout << "They worry about the plan going south, they request you to either go loud or stealth\n";
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> origin/master
 	type("Type 1 for loud and 0 for stealth\n", 30);
 	input;
 	cin >> loudOrStealth;
@@ -80,9 +84,14 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 	cout << "You chose " << loudOrStealth;
 	endl;
 
+<<<<<<< HEAD
 	switch (loudOrStealth){
 	case 0:
 		// The user tried to pick stealth, lets check weather he can or cannot go depending on their suspicion level
+=======
+	switch (loudOrStealth) {
+	case 0:
+>>>>>>> origin/master
 		// this is to check wheather their risk or suspicion is over 40, if so then they are too high to go stealth
 		if (saveFileRisk[searchedIndex] >= 40 || saveFileSuspicion[searchedIndex] >= 40) {
 			type("Your Risk or Suspicion Level is too high, the cops were called and the heist is now loud\n", 30);
@@ -92,7 +101,36 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 			lelip;
 			system("cls");
 			type("Quick! Type this!\n", 30);
+<<<<<<< HEAD
 			sleep(1s);
+=======
+			sleep(0.1s);
+			type("Guys! Find the Bank Manager and get his keycard. The drill and thermite is in the server room.\n", 30);
+			string thisVariableDoesNotReallyMatterTooMuch;
+			cin >> thisVariableDoesNotReallyMatterTooMuch;
+
+			if (thisVariableDoesNotReallyMatterTooMuch == "Guys! Find the Bank Manager and get his keycard. The drill and thermite is in the server room.") {
+				endl;
+				endl;
+
+				type("Great work!, your loyalty increased!", 30);
+
+				// increase loyalty by 10%
+				saveFileLoyalty[searchedIndex] += 10;
+
+				sleep(2s);
+			}
+			else {
+				type("That was not correct, loyalty decreased!", 30);
+
+				if (saveFileLoyalty[searchedIndex] > 10) {
+					saveFileLoyalty[searchedIndex] -= 10;
+				}
+				else {
+					lose();
+				}
+			}
+>>>>>>> origin/master
 		}
 
 		else {
@@ -103,13 +141,17 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 		break;
 
 	case 1:
+<<<<<<< HEAD
 		// If the user chose Loud
 		string thisVariableDoesNotReallyMatterTooMuch;
+=======
+>>>>>>> origin/master
 		cout << "Your Gang reached the Bank with cops alerted and launching an assult soon!\n";
 		lelip;
 		system("cls");
 		cout << "Quick! Type this!\n";
 		sleep(0.1s);
+<<<<<<< HEAD
 
 		int beforeValue = saveFileLoyalty[searchedIndex];
 		
@@ -329,11 +371,45 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 		break; // end of case
 
 	} // End of switch statment
+=======
+		cout << "Guys! Find the Bank Manager and get his keycard. The drill and thermite is in the server room.\n";
+		string thisVariableDoesNotReallyMatterTooMuch;
+		cin >> thisVariableDoesNotReallyMatterTooMuch;
+
+		if (thisVariableDoesNotReallyMatterTooMuch == "Guys! Find the Bank Manager and get his keycard. The drill and thermite is in the server room.") {
+			endl;
+			endl;
+
+			type("Great work!, your loyalty increased!", 30);
+
+			// increase loyalty by 10%
+			saveFileLoyalty[searchedIndex] += 10;
+
+			sleep(2s);
+		}
+		else {
+			type("That was not correct, loyalty decreased!", 30);
+
+			if (saveFileLoyalty[searchedIndex] > 10) {
+				saveFileLoyalty[searchedIndex] -= 10;
+			}
+			else {
+				lose();
+			}
+		}
+
+		break;
+	}
+>>>>>>> origin/master
 
 	cout << "HEY THERE MAN !";
 	endl;
 	pause;
+<<<<<<< HEAD
 } // End of Function
+=======
+}
+>>>>>>> origin/master
 
 //menu for heists
 void heistoptions(std::vector <string> saveFileUsername, std::vector <int> saveFileBalance, std::vector <int> saveFileBudget, std::vector <int> saveFileSuspicion, std::vector <int> saveFileLoyalty, std::vector <int> saveFileReputation, std::vector <int> saveFileRisk, int searchedIndex)
@@ -346,7 +422,11 @@ heistoptions:
 		system("cls");
 		fwb(saveFileUsername, saveFileBalance, saveFileBudget, saveFileSuspicion, saveFileLoyalty, saveFileReputation, saveFileRisk, searchedIndex);
 		break;
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> origin/master
 	default:
 		cout << "Sorry, didn't quite get that!\n";
 		system("PAUSE");
@@ -660,7 +740,7 @@ mainmenu:
 			cout << "Welcome, " << username << ".\n";
 
 			system("PAUSE");
-			
+
 			// This user seems legit lets log him in to crimenet, hopefully he didn't just take one of the usernames in the "SUPER SECURE" CSV file xD
 			crimenet(saveFileUsername, saveFileBalance, saveFileBudget, saveFileSuspicion, saveFileLoyalty, saveFileReputation, saveFileRisk, searchedIndex, saveFileHeister1, saveFileHeister2, saveFileHeister3, saveFileHeister4);
 		}
