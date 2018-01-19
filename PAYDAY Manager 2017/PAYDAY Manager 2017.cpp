@@ -73,7 +73,11 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 
 	cout << "They worry about the plan going south, they request you to either go loud or stealth\n";
 <<<<<<< HEAD
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> origin/master
 =======
 
 >>>>>>> origin/master
@@ -85,9 +89,14 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 	endl;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	switch (loudOrStealth){
 	case 0:
 		// The user tried to pick stealth, lets check weather he can or cannot go depending on their suspicion level
+=======
+	switch (loudOrStealth) {
+	case 0:
+>>>>>>> origin/master
 =======
 	switch (loudOrStealth) {
 	case 0:
@@ -102,8 +111,11 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 			system("cls");
 			type("Quick! Type this!\n", 30);
 <<<<<<< HEAD
+<<<<<<< HEAD
 			sleep(1s);
 =======
+=======
+>>>>>>> origin/master
 			sleep(0.1s);
 			type("Guys! Find the Bank Manager and get his keycard. The drill and thermite is in the server room.\n", 30);
 			string thisVariableDoesNotReallyMatterTooMuch;
@@ -130,6 +142,9 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 					lose();
 				}
 			}
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 		}
 
@@ -142,8 +157,11 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 
 	case 1:
 <<<<<<< HEAD
+<<<<<<< HEAD
 		// If the user chose Loud
 		string thisVariableDoesNotReallyMatterTooMuch;
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 		cout << "Your Gang reached the Bank with cops alerted and launching an assult soon!\n";
@@ -151,6 +169,7 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 		system("cls");
 		cout << "Quick! Type this!\n";
 		sleep(0.1s);
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 		int beforeValue = saveFileLoyalty[searchedIndex];
@@ -401,13 +420,46 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 		break;
 	}
 >>>>>>> origin/master
+=======
+		cout << "Guys! Find the Bank Manager and get his keycard. The drill and thermite is in the server room.\n";
+		string thisVariableDoesNotReallyMatterTooMuch;
+		cin >> thisVariableDoesNotReallyMatterTooMuch;
+
+		if (thisVariableDoesNotReallyMatterTooMuch == "Guys! Find the Bank Manager and get his keycard. The drill and thermite is in the server room.") {
+			endl;
+			endl;
+
+			type("Great work!, your loyalty increased!", 30);
+
+			// increase loyalty by 10%
+			saveFileLoyalty[searchedIndex] += 10;
+
+			sleep(2s);
+		}
+		else {
+			type("That was not correct, loyalty decreased!", 30);
+
+			if (saveFileLoyalty[searchedIndex] > 10) {
+				saveFileLoyalty[searchedIndex] -= 10;
+			}
+			else {
+				lose();
+			}
+		}
+
+		break;
+	}
+>>>>>>> origin/master
 
 	cout << "HEY THERE MAN !";
 	endl;
 	pause;
 <<<<<<< HEAD
+<<<<<<< HEAD
 } // End of Function
 =======
+=======
+>>>>>>> origin/master
 }
 >>>>>>> origin/master
 
@@ -423,7 +475,11 @@ heistoptions:
 		fwb(saveFileUsername, saveFileBalance, saveFileBudget, saveFileSuspicion, saveFileLoyalty, saveFileReputation, saveFileRisk, searchedIndex);
 		break;
 <<<<<<< HEAD
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> origin/master
 =======
 
 >>>>>>> origin/master
