@@ -23,6 +23,7 @@
 #include <ctime>
 #include <vector>
 #include <fstream>
+#include <ctime>
 
 #pragma comment(lib, "Winmm.lib")
 

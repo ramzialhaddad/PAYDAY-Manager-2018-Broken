@@ -32,12 +32,20 @@ int r = 12;
 int y = 14;
 HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
+// Function to generate random 50 50 outcomes
+int randomGenerator() {
+	srand(time(0));
+	return rand() % 2;
+}
+
+// Function that handles bad points for loyalty
 int badPoint(std::vector <int> saveFileLoyalty, int searchedIndex, unsigned int amount) {
 
 	saveFileLoyalty[searchedIndex] -= amount;
 	return saveFileLoyalty[searchedIndex];
 }
 
+// Function that handles good points for loyalty
 int goodPoint(std::vector <int> saveFileLoyalty, int searchedIndex, unsigned int amount) {
 
 	saveFileLoyalty[searchedIndex] += amount;
@@ -69,12 +77,12 @@ void lose() {
 void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalance, std::vector <int> saveFileBudget, std::vector <int> saveFileSuspicion, std::vector <int> saveFileLoyalty, std::vector <int> saveFileReputation, std::vector <int> saveFileRisk, int searchedIndex) {
 	type("Loading", 30);
 	lelip;
-	cout << "\n";
+	endl;
 
-	cout << "You send the Payday Gang to the bank...\n";
+	type("You send the Payday Gang to the bank...\n", 30);
 	sleep(1s);
 
-	cout << "They worry about the plan going south, they request you to either go loud or stealth\n";
+	type("They worry about the plan going south, they request you to either go loud or stealth\n", 30);
 	
 	type("Type 1 for loud and 0 for stealth\n", 30);
 	input;
@@ -108,8 +116,12 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 	case 1:
 		// If the user chose Loud
 		string thisVariableDoesNotReallyMatterTooMuch;
+		system("cls");
 		cout << "Your Gang reached the Bank with cops alerted and launching an assult soon!\n";
+		PlaySound(TEXT("music.wav"), NULL, SND_FILENAME | SND_ASYNC);
 		lelip;
+		type("They arrive at the Bank and shoot the visible security guards and gather up hostages", 40);
+		sleep(2s);
 		system("cls");
 		cout << "Quick! Type this!\n";
 		sleep(0.1s);
@@ -119,6 +131,7 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 		SetConsoleTextAttribute(hConsole, y);
 		cout << "Guys!\n";
 		SetConsoleTextAttribute(hConsole, w);
+		input;
 		cin >> thisVariableDoesNotReallyMatterTooMuch;
 		if (thisVariableDoesNotReallyMatterTooMuch != "Guys!"){
 			if (saveFileLoyalty[searchedIndex] > 0) {
@@ -129,9 +142,11 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 			saveFileLoyalty[searchedIndex] = goodPoint(saveFileLoyalty, searchedIndex, 1);
 		}
 
+		system("cls");
 		SetConsoleTextAttribute(hConsole, y);
 		cout << "find\n";
 		SetConsoleTextAttribute(hConsole, w);
+		input;
 		cin >> thisVariableDoesNotReallyMatterTooMuch;
 		if (thisVariableDoesNotReallyMatterTooMuch != "find") {
 			if (saveFileLoyalty[searchedIndex] > 0) {
@@ -142,9 +157,11 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 			saveFileLoyalty[searchedIndex] = goodPoint(saveFileLoyalty, searchedIndex, 1);
 		}
 
+		system("cls");
 		SetConsoleTextAttribute(hConsole, y);
 		cout << "the\n";
 		SetConsoleTextAttribute(hConsole, w);
+		input;
 		cin >> thisVariableDoesNotReallyMatterTooMuch;
 		if (thisVariableDoesNotReallyMatterTooMuch != "the") {
 			if (saveFileLoyalty[searchedIndex] > 0) {
@@ -155,9 +172,11 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 			saveFileLoyalty[searchedIndex] = goodPoint(saveFileLoyalty, searchedIndex, 1);
 		}
 
+		system("cls");
 		SetConsoleTextAttribute(hConsole, y);
 		cout << "Bank\n";
 		SetConsoleTextAttribute(hConsole, w);
+		input;
 		cin >> thisVariableDoesNotReallyMatterTooMuch;
 		if (thisVariableDoesNotReallyMatterTooMuch != "Bank") {
 			if (saveFileLoyalty[searchedIndex] > 0) {
@@ -168,9 +187,11 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 			saveFileLoyalty[searchedIndex] = goodPoint(saveFileLoyalty, searchedIndex, 1);
 		}
 
+		system("cls");
 		SetConsoleTextAttribute(hConsole, y);
 		cout << "Manager\n";
 		SetConsoleTextAttribute(hConsole, w);
+		input;
 		cin >> thisVariableDoesNotReallyMatterTooMuch;
 		if (thisVariableDoesNotReallyMatterTooMuch != "manager") {
 			if (saveFileLoyalty[searchedIndex] > 0) {
@@ -181,9 +202,11 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 			saveFileLoyalty[searchedIndex] = goodPoint(saveFileLoyalty, searchedIndex, 1);
 		}
 
+		system("cls");
 		SetConsoleTextAttribute(hConsole, y);
 		cout << "and\n";
 		SetConsoleTextAttribute(hConsole, w);
+		input;
 		cin >> thisVariableDoesNotReallyMatterTooMuch;
 		if (thisVariableDoesNotReallyMatterTooMuch != "and") {
 			if (saveFileLoyalty[searchedIndex] > 0) {
@@ -194,9 +217,11 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 			saveFileLoyalty[searchedIndex] = goodPoint(saveFileLoyalty, searchedIndex, 1);
 		}
 
+		system("cls");
 		SetConsoleTextAttribute(hConsole, y);
 		cout << "get\n";
 		SetConsoleTextAttribute(hConsole, w);
+		input;
 		cin >> thisVariableDoesNotReallyMatterTooMuch;
 		if (thisVariableDoesNotReallyMatterTooMuch != "get") {
 			if (saveFileLoyalty[searchedIndex] > 0) {
@@ -207,9 +232,11 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 			saveFileLoyalty[searchedIndex] = goodPoint(saveFileLoyalty, searchedIndex, 1);
 		}
 
+		system("cls");
 		SetConsoleTextAttribute(hConsole, y);
 		cout << "his\n";
 		SetConsoleTextAttribute(hConsole, w);
+		input;
 		cin >> thisVariableDoesNotReallyMatterTooMuch;
 		if (thisVariableDoesNotReallyMatterTooMuch != "his") {
 			if (saveFileLoyalty[searchedIndex] > 0) {
@@ -220,9 +247,11 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 			saveFileLoyalty[searchedIndex] = goodPoint(saveFileLoyalty, searchedIndex, 1);
 		}
 
+		system("cls");
 		SetConsoleTextAttribute(hConsole, y);
 		cout << "keycard.\n";
 		SetConsoleTextAttribute(hConsole, w);
+		input;
 		cin >> thisVariableDoesNotReallyMatterTooMuch;
 		if (thisVariableDoesNotReallyMatterTooMuch != "keycard") {
 			if (saveFileLoyalty[searchedIndex] > 0) {
@@ -233,9 +262,11 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 			saveFileLoyalty[searchedIndex] = goodPoint(saveFileLoyalty, searchedIndex, 1);
 		}
 
+		system("cls");
 		SetConsoleTextAttribute(hConsole, y);
 		cout << "The\n";
 		SetConsoleTextAttribute(hConsole, w);
+		input;
 		cin >> thisVariableDoesNotReallyMatterTooMuch;
 		if (thisVariableDoesNotReallyMatterTooMuch != "The") {
 			if (saveFileLoyalty[searchedIndex] > 0) {
@@ -246,9 +277,11 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 			saveFileLoyalty[searchedIndex] = goodPoint(saveFileLoyalty, searchedIndex, 1);
 		}
 
+		system("cls");
 		SetConsoleTextAttribute(hConsole, y);
 		cout << "drill\n";
 		SetConsoleTextAttribute(hConsole, w);
+		input;
 		cin >> thisVariableDoesNotReallyMatterTooMuch;
 		if (thisVariableDoesNotReallyMatterTooMuch != "drill") {
 			if (saveFileLoyalty[searchedIndex] > 0) {
@@ -259,9 +292,11 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 			saveFileLoyalty[searchedIndex] = goodPoint(saveFileLoyalty, searchedIndex, 1);
 		}
 
+		system("cls");
 		SetConsoleTextAttribute(hConsole, y);
 		cout << "and\n";
 		SetConsoleTextAttribute(hConsole, w);
+		input;
 		cin >> thisVariableDoesNotReallyMatterTooMuch;
 		if (thisVariableDoesNotReallyMatterTooMuch != "and") {
 			if (saveFileLoyalty[searchedIndex] > 0) {
@@ -272,9 +307,11 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 			saveFileLoyalty[searchedIndex] = goodPoint(saveFileLoyalty, searchedIndex, 1);
 		}
 
+		system("cls");
 		SetConsoleTextAttribute(hConsole, y);
 		cout << "thermite\n";
 		SetConsoleTextAttribute(hConsole, w);
+		input;
 		cin >> thisVariableDoesNotReallyMatterTooMuch;
 		if (thisVariableDoesNotReallyMatterTooMuch != "thermite") {
 			if (saveFileLoyalty[searchedIndex] > 0) {
@@ -284,9 +321,12 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 		else {
 			saveFileLoyalty[searchedIndex] = goodPoint(saveFileLoyalty, searchedIndex, 1);
 		}
+
+		system("cls");
 		SetConsoleTextAttribute(hConsole, y);
 		cout << "is\n";
 		SetConsoleTextAttribute(hConsole, w);
+		input;
 		cin >> thisVariableDoesNotReallyMatterTooMuch;
 		if (thisVariableDoesNotReallyMatterTooMuch != "is") {
 			if (saveFileLoyalty[searchedIndex] > 0) {
@@ -297,9 +337,11 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 			saveFileLoyalty[searchedIndex] = goodPoint(saveFileLoyalty, searchedIndex, 1);
 		}
 
+		system("cls");
 		SetConsoleTextAttribute(hConsole, y);
 		cout << "in\n";
 		SetConsoleTextAttribute(hConsole, w);
+		input;
 		cin >> thisVariableDoesNotReallyMatterTooMuch;
 		if (thisVariableDoesNotReallyMatterTooMuch != "in") {
 			if (saveFileLoyalty[searchedIndex] > 0) {
@@ -310,9 +352,11 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 			saveFileLoyalty[searchedIndex] = goodPoint(saveFileLoyalty, searchedIndex, 1);
 		}
 
+		system("cls");
 		SetConsoleTextAttribute(hConsole, y);
 		cout << "the\n";
 		SetConsoleTextAttribute(hConsole, w);
+		input;
 		cin >> thisVariableDoesNotReallyMatterTooMuch;
 		if (thisVariableDoesNotReallyMatterTooMuch != "the") {
 			if (saveFileLoyalty[searchedIndex] > 0) {
@@ -323,9 +367,11 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 			saveFileLoyalty[searchedIndex] = goodPoint(saveFileLoyalty, searchedIndex, 1);
 		}
 
+		system("cls");
 		SetConsoleTextAttribute(hConsole, y);
 		cout << "server\n";
 		SetConsoleTextAttribute(hConsole, w);
+		input;
 		cin >> thisVariableDoesNotReallyMatterTooMuch;
 		if (thisVariableDoesNotReallyMatterTooMuch != "server") {
 			if (saveFileLoyalty[searchedIndex] > 0) {
@@ -336,9 +382,11 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 			saveFileLoyalty[searchedIndex] = goodPoint(saveFileLoyalty, searchedIndex, 1);
 		}
 
+		system("cls");
 		SetConsoleTextAttribute(hConsole, y);
 		cout << "room.\n";
 		SetConsoleTextAttribute(hConsole, w);
+		input;
 		cin >> thisVariableDoesNotReallyMatterTooMuch;
 		if (thisVariableDoesNotReallyMatterTooMuch != "room") {
 			if (saveFileLoyalty[searchedIndex] > 0) {
@@ -357,14 +405,55 @@ void fwb(std::vector <string> saveFileUsername, std::vector <int> saveFileBalanc
 		sleep(2s);
 
 		int calculatedResult = saveFileLoyalty[searchedIndex] - beforeValue;
-		type("You got a total of " + to_string(calculatedResult) + "loyal points!", 30);
+		type("You got a total of " + to_string(calculatedResult) + " loyal points!", 30);
 		sleep(2s);
 		endl;
 		system("cls");
+
+		type("They search for the Bank Manager", 30);
+		lelip;
+		endl;
+		sleep(2s);
+		type("They found the Bank Manager, should they kill him or take him as a hostage?", 40);
+		sleep(2s);
+		endl;
+		SetConsoleTextAttribute(hConsole, r);
+		type("-kill +2 Risk\n", 30);
+		SetConsoleTextAttribute(hConsole, b);
+		type("-hostage -1 Risk\n", 30);
+		SetConsoleTextAttribute(hConsole, w);
+		input;
+		cin >> thisVariableDoesNotReallyMatterTooMuch;
+
+		if (thisVariableDoesNotReallyMatterTooMuch == "kill" || thisVariableDoesNotReallyMatterTooMuch == "Kill" || thisVariableDoesNotReallyMatterTooMuch == "k") {
+			type("Risk increased by 2", 40);
+			saveFileRisk[searchedIndex] += 2;
+			type("The gang brutally shot the Bank Manager and took the keycard", 30);
+		}
+		else if (thisVariableDoesNotReallyMatterTooMuch == "hostage" || thisVariableDoesNotReallyMatterTooMuch == "Hostage" || thisVariableDoesNotReallyMatterTooMuch == "h") {
+			type("Risk decreased by 1", 30);
+			saveFileRisk[searchedIndex] -= 1;
+			type("The gang ties the bank manager up and hide him in a corner", 30);
+		}
+		cls;
+		sleep(2s);
+		type("The gang searches the bank for the server room", 30);
+		elip;
+		type("They find the server room and pick up the drill and thermite", 30);
+		sleep(1s);
+		endl;
+		// random chance of thermite not being taken
+		if (int(randomGenerator) == 1) {
+			type("They forgot to take the other canister of thermite", 30);
+			type("Type This!", 30);
+
+			// the typing thing
+		}
+		
+
+
+
 		system("PAUSE");
-
-
-
 		break; // end of case
 
 	} // End of switch statment
@@ -484,22 +573,22 @@ int stats(std::vector <string> saveFileUsername, std::vector <int> saveFileBalan
 	endl;
 	Sleep(100);
 
-	message = "Prefered Heister 1: " + saveFileHeister1[searchedIndex];
+	message = "Preferred Heister 1: " + saveFileHeister1[searchedIndex];
 	type(message, 30);
 	endl;
 	Sleep(100);
 
-	message = "Prefered Heister 2: " + saveFileHeister2[searchedIndex];
+	message = "Preferred Heister 2: " + saveFileHeister2[searchedIndex];
 	type(message, 30);
 	endl;
 	Sleep(100);
 
-	message = "Prefered Heister 3: " + saveFileHeister3[searchedIndex];
+	message = "Preferred Heister 3: " + saveFileHeister3[searchedIndex];
 	type(message, 30);
 	endl;
 	Sleep(100);
 
-	message = "Prefered Heister 4: " + saveFileHeister4[searchedIndex];
+	message = "Preferred Heister 4: " + saveFileHeister4[searchedIndex];
 	type(message, 30);
 	endl;
 	Sleep(2000);
