@@ -1,4 +1,4 @@
-# PAYDAY--Manager-2017
+# PAYDAY--Manager-2018
 A Payday fan game made with C++. Just remember it is a WIP game, just for fun!
 
 # Instructions
